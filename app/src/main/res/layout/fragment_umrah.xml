@@ -1,0 +1,329 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    tools:context=".UmrahView">
+
+
+    <LinearLayout
+        android:layout_height="match_parent"
+        android:layout_width="match_parent"
+        android:padding="15dp"
+        android:orientation="vertical">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:padding="5dp"
+            android:orientation="horizontal"
+            android:layoutDirection="rtl">
+
+            <com.google.android.material.button.MaterialButton
+                android:id="@+id/umrahback"
+                android:layout_width="60dp"
+                android:layout_height="65dp"
+                android:padding="5dp"
+                android:hint=""
+                android:textColorHint="@color/primary2"
+                app:elevation="15dp"
+                app:backgroundTint="@color/white"
+                app:cornerRadius="75dp"
+                app:icon="@drawable/baseline_arrow_back_ios_24"
+                app:iconTint="@color/primary2"
+                app:iconSize="27dp"
+                app:iconGravity="textEnd"
+                />
+
+            <Space
+                android:layout_width="100dp"
+                android:layout_height="match_parent"/>
+
+            <LinearLayout android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:gravity="end"
+                android:orientation="horizontal"
+                >
+
+                <com.google.android.material.button.MaterialButton
+                    android:id="@+id/save_changes"
+                    android:layout_width="60dp"
+                    android:layout_height="65dp"
+                    android:padding="5dp"
+                    android:hint=""
+                    android:textColorHint="@color/primary2"
+                    app:elevation="15dp"
+                    app:backgroundTint="@color/white"
+                    app:cornerRadius="75dp"
+                    app:icon="@drawable/baseline_save_24"
+                    app:iconTint="@color/black"
+                    app:iconSize="27dp"
+                    app:iconGravity="textTop"
+                    android:layout_marginLeft="8dp"
+                    android:visibility="invisible"
+                    />
+                <com.google.android.material.button.MaterialButton
+                    android:id="@+id/dataaccessumrah"
+                    android:layout_width="60dp"
+                    android:layout_height="65dp"
+                    android:padding="5dp"
+                    android:hint=""
+                    android:textColorHint="@color/primary2"
+                    app:elevation="15dp"
+                    app:backgroundTint="@color/white"
+                    app:cornerRadius="75dp"
+                    app:icon="@drawable/baseline_lock_open_24"
+                    app:iconTint="@color/primary2"
+                    app:iconSize="27dp"
+                    app:iconGravity="textTop"
+                    android:layout_marginLeft="8dp"
+                    />
+                <com.google.android.material.button.MaterialButton
+                    android:id="@+id/deleteumrah"
+                    android:layout_width="60dp"
+                    android:layout_height="65dp"
+                    android:padding="5dp"
+                    android:hint=""
+                    android:textColorHint="@color/primary2"
+                    app:elevation="15dp"
+                    app:backgroundTint="@color/white"
+                    app:cornerRadius="75dp"
+                    app:icon="@drawable/baseline_delete_24"
+                    app:iconTint="#FF0000"
+                    app:iconSize="27dp"
+                    app:iconGravity="textTop"
+                    />
+
+            </LinearLayout>
+
+
+
+
+        </LinearLayout>
+        <com.google.android.material.card.MaterialCardView
+            android:layout_height="match_parent"
+            android:layout_width="match_parent"
+            android:elevation="45dp"
+            app:cardCornerRadius="15dp"
+            android:layoutDirection="rtl"
+            android:padding="15dp"
+            >
+            <ScrollView
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:scrollIndicators="none">
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:orientation="vertical"
+                android:padding="10dp">
+
+                <TextView
+                android:id="@+id/umrah_date"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:gravity="center"
+                android:text="10/12/2023"
+                android:textColor="@color/primary2"
+                android:textStyle="bold"
+                android:textSize="30dp"
+                android:paddingTop="10dp"
+                />
+            <Space
+                android:layout_width="match_parent"
+                android:layout_height="20dp"/>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal"
+                    android:padding="10dp"
+                    android:layoutDirection="rtl"
+                    >
+
+                    <TextView
+
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="مكان الاقامة"
+                        android:textColor="@color/primary2"
+                        android:textSize="20dp"
+
+                        />
+
+                    <Space
+                        android:layout_width="40dp"
+                        android:layout_height="match_parent"/>
+
+                    <EditText
+                        android:id="@+id/hotel"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:text="اسم النزل "
+                        android:textSize="20dp"
+                        android:enabled="false"/>
+
+                </LinearLayout>
+
+                <Space
+                    android:layout_width="match_parent"
+                    android:layout_height="20dp"/>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal"
+                    android:padding="10dp"
+                    android:layoutDirection="rtl"
+                    >
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="تكاليف الرحلة :"
+                        android:textColor="@color/primary2"
+                        android:textSize="20dp"
+
+                        />
+
+                    <Space
+                        android:layout_width="40dp"
+                        android:layout_height="match_parent"/>
+
+                    <EditText
+                        android:id="@+id/takalif"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:text=""
+                        android:textSize="20dp"
+                        android:enabled="false"/>
+
+                </LinearLayout>
+                <Space
+                    android:layout_width="match_parent"
+                    android:layout_height="20dp"/>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal"
+                    android:padding="10dp"
+                    android:layoutDirection="rtl"
+                    >
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="المرابيح :"
+                        android:textColor="@color/primary2"
+                        android:textSize="20dp"
+                        />
+
+                    <Space
+                        android:layout_width="40dp"
+                        android:layout_height="match_parent"/>
+
+                    <TextView
+                        android:id="@+id/umrahmarabih"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:text="500dt"
+                        android:textColor="@color/primary2"
+                        android:gravity="center"
+                        android:textSize="20dp"
+                        />
+                </LinearLayout>
+
+                <Space
+                    android:layout_width="match_parent"
+                    android:layout_height="10dp"/>
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal"
+                    android:layout_gravity="center">
+
+                    <View
+                        android:layout_width="90dp"
+                        android:layout_height="1dp"
+                        android:background="@color/primary2"
+                        android:layout_gravity="center"/>
+                    <TextView
+                        android:layout_height="wrap_content"
+                        android:layout_width="wrap_content"
+                        android:paddingHorizontal="8dp"
+                        android:text="قائمة المعتمرين"
+                        android:textSize="26dp"
+                        android:gravity="center"
+                        android:textColor="@color/primary2"
+                        />
+                    <View
+                        android:layout_width="90dp"
+                        android:layout_height="1dp"
+                        android:background="@color/primary2"
+                        android:layout_gravity="center" />
+                </LinearLayout>
+
+                <Space
+                    android:layout_width="match_parent"
+                    android:layout_height="30dp"/>
+
+                <androidx.recyclerview.widget.RecyclerView
+                    android:id="@+id/mootamarlist"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"/>
+
+                <Space
+                    android:layout_width="match_parent"
+                    android:layout_height="20dp"/>
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal"
+                    android:padding="5dp"
+                    android:gravity="center">
+                <com.google.android.material.button.MaterialButton
+                    android:id="@+id/add_mootamar"
+                    android:layout_width="wrap_content"
+                    android:layout_height="75dp"
+                    android:padding="5dp"
+                    android:text="اضافة معتمر"
+                    android:textSize="25dp"
+                    android:textColor="@color/white"
+                    app:elevation="15dp"
+                    app:backgroundTint="@color/primary2"
+                    app:cornerRadius="15dp"
+                    android:layout_gravity="center"
+                    android:gravity="center"
+                    />
+                    <Space
+                        android:layout_width="10dp"
+                        android:layout_height="0dp"/>
+                    <com.google.android.material.button.MaterialButton
+                        android:id="@+id/room"
+                        android:layout_width="140dp"
+                        android:layout_height="75dp"
+                        android:padding="5dp"
+                        android:text="الغرف"
+                        android:textSize="25dp"
+                        android:textColor="@color/white"
+                        app:elevation="15dp"
+                        app:backgroundTint="@color/primary2"
+                        app:cornerRadius="15dp"
+                        android:layout_gravity="center"
+                        android:gravity="center"
+                        />
+                </LinearLayout>
+
+            </LinearLayout>
+
+            </ScrollView>
+
+
+        </com.google.android.material.card.MaterialCardView>
+
+
+    </LinearLayout>
+
+</FrameLayout>

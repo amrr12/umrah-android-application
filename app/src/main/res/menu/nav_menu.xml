@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    tools:showIn = "navigation_view"
+
+    >
+
+
+    <group
+        android:checkableBehavior="single"
+
+        >
+
+        <item
+            android:id="@+id/nav_home"
+            android:icon="@drawable/baseline_home_24"
+            android:title="الصفحة الرئيسية"
+            android:layoutDirection="rtl"
+            android:textColor="@color/primary"
+            android:textAppearance="@style/CustomDrawerItemTextAppearance"
+
+            />
+
+        <item
+            android:id="@+id/nav_archive"
+            android:icon="@drawable/baseline_archive_24"
+            android:title="الارشيف"
+            android:layoutDirection="rtl"
+            android:textColor="@color/primary"
+            android:textAppearance="@style/CustomDrawerItemTextAppearance"
+
+            />
+
+        <item
+            android:id="@+id/money"
+            android:icon="@drawable/baseline_attach_money_24"
+            android:title="المرابيح"
+            android:layoutDirection="rtl"
+            android:textColor="@color/primary"
+            android:textAppearance="@style/CustomDrawerItemTextAppearance"
+
+            />
+    </group>
+
+    <item
+        android:title=""
+        >
+
+    <menu>
+        <item
+            android:id="@+id/nav_logout"
+            android:icon="@drawable/baseline_logout_24"
+            android:title="اغلاق التطبيق"
+            android:layoutDirection="rtl"
+            android:textColor="@color/primary"
+            android:textAppearance="@style/CustomDrawerItemTextAppearance"
+
+            />
+    </menu>
+
+    </item>
+</menu>

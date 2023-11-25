@@ -1,0 +1,26 @@
+package com.example.amrproject.Dao;
+import androidx.room.Dao;
+import androidx.room.Delete;
+import androidx.room.Insert;
+import androidx.room.OnConflictStrategy;
+import androidx.room.Query;
+
+import com.example.amrproject.models.Mootamar;
+
+import java.util.List;
+
+import io.reactivex.rxjava3.core.Completable;
+import io.reactivex.rxjava3.core.Observable;
+
+@Dao
+public interface MootamarDao {
+
+    @Insert(onConflict = OnConflictStrategy.REPLACE)
+    Completable create_mootamar(Mootamar mootamar);
+
+    @Query("select * from mootamar_table where umrahid = :umrahid")
+    Observable<List<Mootamar>> get_mootamar(int umrahid);
+
+    @Delete
+    Completable delete_mootamar(Mootamar mootamar);
+}

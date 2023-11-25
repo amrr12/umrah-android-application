@@ -1,0 +1,76 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    tools:context=".HomeFragment"
+    android:background="@drawable/gradientbackgound">
+
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:gravity="start"
+
+
+        android:orientation="vertical">
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="200dp"
+        android:background="@drawable/backback">
+        <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:padding="25dp"
+        android:text="رَبَّنَا وَٱجۡعَلۡنَا مُسۡلِمَيۡنِ لَكَ وَمِن ذُرِّيَّتِنَآ أُمَّةٗ مُّسۡلِمَةٗ لَّكَ وَأَرِنَا مَنَاسِكَنَا وَتُبۡ عَلَيۡنَآۖ إِنَّكَ أَنتَ ٱلتَّوَّابُ ٱلرَّحِيمُ"
+        android:layout_centerInParent="true"
+        android:textSize="25dp"
+        android:textColor="@color/primary1"
+        />
+    </RelativeLayout>
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:paddingTop="25dp"
+            android:text="قائمة الرحلات"
+            android:textColor="@color/white"
+            android:textSize="25dp"
+            android:textStyle="bold"
+            />
+        <GridView
+            android:id="@+id/grid_view"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:padding="10dp"
+            android:paddingStart="25dp"
+            android:numColumns="3"
+            android:verticalSpacing="8dp"
+            android:horizontalSpacing="7dp"
+
+        />
+
+    </LinearLayout>
+    <com.google.android.material.floatingactionbutton.ExtendedFloatingActionButton
+        android:id="@+id/addUmrah"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layoutDirection="rtl"
+        android:layout_alignParentBottom="true"
+        android:layout_alignParentEnd="true"
+        android:layout_margin="16dp"
+        android:gravity="center"
+        app:backgroundTint="@color/primary2"
+        app:elevation="5dp"
+        app:icon="@drawable/baseline_add_24"
+        app:iconTint="@color/white"
+        app:iconSize="20dp"
+        app:iconGravity="textStart"
+        android:text="عمرة"
+        android:textSize="20dp"
+        android:textColor="@color/white">
+    </com.google.android.material.floatingactionbutton.ExtendedFloatingActionButton>
+
+</RelativeLayout>
