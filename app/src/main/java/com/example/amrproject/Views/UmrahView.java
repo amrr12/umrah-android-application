@@ -1,4 +1,4 @@
-package com.example.amrproject;
+package com.example.amrproject.Views;
 
 
 import android.app.AlertDialog;
@@ -17,14 +17,13 @@ import androidx.recyclerview.widget.RecyclerView;
 
 import android.util.Log;
 import android.view.LayoutInflater;
-import android.view.MotionEvent;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.AdapterView;
 import android.widget.EditText;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.example.amrproject.R;
 import com.example.amrproject.ViewModels.UmrahViewViewModel;
 import com.example.amrproject.adapters.RecycleViewAdapter;
 import com.example.amrproject.models.Mootamar;

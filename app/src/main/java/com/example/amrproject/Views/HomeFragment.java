@@ -1,4 +1,4 @@
-package com.example.amrproject;
+package com.example.amrproject.Views;
 
 import android.os.Bundle;
 
@@ -11,13 +11,11 @@ import android.view.ViewGroup;
 import android.widget.GridView;
 
 
+import com.example.amrproject.R;
 import com.example.amrproject.ViewModels.HomeViewModel;
 import com.example.amrproject.adapters.GridAdapter;
 import com.example.amrproject.models.Umrah;
 import com.google.android.material.button.MaterialButton;
-
-import java.util.ArrayList;
-import java.util.Arrays;
 
 
 public class HomeFragment extends Fragment {

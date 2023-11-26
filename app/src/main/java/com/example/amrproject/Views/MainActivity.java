@@ -1,4 +1,4 @@
-package com.example.amrproject;
+package com.example.amrproject.Views;
 
 import androidx.annotation.NonNull;
 
@@ -16,6 +16,7 @@ import android.view.MenuItem;
 import android.view.View;
 
 import com.example.amrproject.DataBase.DataBase;
+import com.example.amrproject.R;
 import com.example.amrproject.ViewModels.HomeViewModel;
 import com.google.android.material.navigation.NavigationView;
 

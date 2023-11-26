@@ -1,4 +1,4 @@
-package com.example.amrproject;
+package com.example.amrproject.Views;
 
 import android.os.Bundle;
 
@@ -9,6 +9,7 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.EditText;
 
+import com.example.amrproject.R;
 import com.example.amrproject.ViewModels.MootamarViewViewModel;
 
 public class MootamarView extends Fragment {

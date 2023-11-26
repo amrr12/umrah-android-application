@@ -1,4 +1,4 @@
-package com.example.amrproject;
+package com.example.amrproject.Views;
 
 import android.os.Bundle;
 
@@ -15,6 +15,7 @@ import android.widget.RadioButton;
 import android.widget.Spinner;
 import android.widget.Toast;
 
+import com.example.amrproject.R;
 import com.example.amrproject.ViewModels.CreateMootamarViewModel;
 import com.google.android.material.button.MaterialButton;
 
