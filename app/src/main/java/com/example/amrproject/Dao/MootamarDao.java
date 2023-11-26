@@ -21,6 +21,9 @@ public interface MootamarDao {
     @Query("select * from mootamar_table where umrahid = :umrahid")
     Observable<List<Mootamar>> get_mootamar(int umrahid);
 
+    @Query("select * from mootamar_table where id = :id")
+    Observable<Mootamar> get_mootamarr(int id);
+
     @Delete
     Completable delete_mootamar(Mootamar mootamar);
 }

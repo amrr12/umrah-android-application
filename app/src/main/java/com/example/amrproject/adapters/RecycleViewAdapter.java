@@ -1,5 +1,6 @@
 package com.example.amrproject.adapters;
 
+import android.annotation.SuppressLint;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -12,15 +13,16 @@ import com.example.amrproject.models.Mootamar;
 
 import java.util.List;
 
-public class RecycleViewAdapter extends RecyclerView.Adapter<RecycleViewAdapter.ViewHolder> {
+public  class RecycleViewAdapter extends RecyclerView.Adapter<RecycleViewAdapter.ViewHolder> {
 
-    public List<Mootamar> localDataSet;
+    public interface OnItemClickListener {
+        void onItemClick(int position);
+    }
+
+    private List<Mootamar> localDataSet;
+    private OnItemClickListener onItemClickListener;
 
 
-    /**
-     * Provide a reference to the type of views that you are using
-     * (custom ViewHolder)
-     */
     public static class ViewHolder extends RecyclerView.ViewHolder {
         private final TextView esem;
         private final TextView phonemootamar;
@@ -42,7 +44,8 @@ public class RecycleViewAdapter extends RecyclerView.Adapter<RecycleViewAdapter.
     }
 
 
-    public RecycleViewAdapter() {
+    public RecycleViewAdapter(OnItemClickListener listener) {
+        this.onItemClickListener = listener;
     }
 
     public void setLocalDataSet(List<Mootamar> localDataSet) {
@@ -60,8 +63,7 @@ public class RecycleViewAdapter extends RecyclerView.Adapter<RecycleViewAdapter.
 
 
     @Override
-    public void onBindViewHolder(ViewHolder viewHolder, final int position) {
-
+    public void onBindViewHolder(ViewHolder viewHolder, int position) {
 
 
         if (!localDataSet.isEmpty()) {
@@ -70,7 +72,16 @@ public class RecycleViewAdapter extends RecyclerView.Adapter<RecycleViewAdapter.
 
             viewHolder.getEsem().setText(mootamarFullName);
             viewHolder.getPhonemootamar().setText(String.valueOf(mootamarPhoneNumber));
+            viewHolder.itemView.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View v) {
+                    // Call onItemClick when an item is clicked
+                    onItemClickListener.onItemClick(position);
+                }
+            });
         }
+
+
     }
 
 

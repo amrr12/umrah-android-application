@@ -17,8 +17,10 @@ import androidx.recyclerview.widget.RecyclerView;
 
 import android.util.Log;
 import android.view.LayoutInflater;
+import android.view.MotionEvent;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.AdapterView;
 import android.widget.EditText;
 import android.widget.TextView;
 import android.widget.Toast;
@@ -29,14 +31,13 @@ import com.example.amrproject.models.Mootamar;
 import com.google.android.material.button.MaterialButton;
 import com.google.android.material.snackbar.Snackbar;
 
-import java.util.ArrayList;
 import java.util.List;
 import java.util.concurrent.atomic.AtomicBoolean;
 
 import it.xabaras.android.recyclerview.swipedecorator.RecyclerViewSwipeDecorator;
 
 
-public class UmrahView extends Fragment {
+public class UmrahView extends Fragment implements RecycleViewAdapter.OnItemClickListener {
 
     UmrahViewViewModel viewModel;
 
@@ -53,15 +54,7 @@ public class UmrahView extends Fragment {
 
     RecyclerView listmootamar;
 
-    public class Mootamer {
-        public String name ;
-        public String phone ;
 
-        public Mootamer(String name, String phone) {
-            this.name = name;
-            this.phone = phone;
-        }
-    }
 
 
     @Override
@@ -159,7 +152,7 @@ public class UmrahView extends Fragment {
         });
 
         listmootamar = view.findViewById(R.id.mootamarlist);
-        RecycleViewAdapter adapter = new RecycleViewAdapter();
+        RecycleViewAdapter adapter = new RecycleViewAdapter(this);
         viewModel.getMootamarList().observe(getViewLifecycleOwner(),list->{
             adapter.setLocalDataSet(list);
         });
@@ -220,6 +213,12 @@ public class UmrahView extends Fragment {
         ItemTouchHelper itemTouchHelper = new ItemTouchHelper(simpleCallback);
         itemTouchHelper.attachToRecyclerView(listmootamar);
 
+
+
+        listmootamar.addOnItemTouchListener(new RecyclerView.SimpleOnItemTouchListener(
+
+        ));
+
         addMootamar.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -234,9 +233,25 @@ public class UmrahView extends Fragment {
                 ft.commit();
             }
         });
+
+
+
+
         return view;
     }
 
 
+    @Override
+    public void onItemClick(int position) {
+        int Mootamarid = viewModel.getMootamarList().getValue().get(position).getId();
+        Bundle bundle = new Bundle();
+        bundle.putString("mootamar",String.valueOf(Mootamarid));
+        Fragment frag = new MootamarView();
+        frag.setArguments(bundle);
+        FragmentTransaction ft = getParentFragmentManager().beginTransaction();;
+        ft.replace(R.id.fragment_container, frag);
+        ft.setTransition(FragmentTransaction.TRANSIT_FRAGMENT_FADE);
+        ft.commit();
+    }
 }
 

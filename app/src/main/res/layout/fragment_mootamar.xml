@@ -145,7 +145,7 @@
                             android:id="@+id/esmmmootamar"
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
-                            android:text="عمرو"
+                            android:text=""
                             android:textSize="20dp"
                             android:enabled="false"/>
 
@@ -164,7 +164,6 @@
                             android:text=" رقم الهاتف: "
                             android:textColor="@color/primary2"
                             android:textSize="20dp"
-
                             />
 
                         <Space
@@ -175,7 +174,7 @@
                             android:id="@+id/phonemootamar"
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
-                            android:text="اسم النزل "
+                            android:text=""
                             android:textSize="20dp"
                             android:enabled="false"/>
 
@@ -209,7 +208,7 @@
                             android:id="@+id/price"
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
-                            android:text="533"
+                            android:text=""
                             android:textSize="20dp"
                             android:enabled="false"
                             android:inputType="number"

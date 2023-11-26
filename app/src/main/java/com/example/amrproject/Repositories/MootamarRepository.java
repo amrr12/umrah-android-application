@@ -42,4 +42,10 @@ public class MootamarRepository {
                 .observeOn(AndroidSchedulers.mainThread());
     }
 
+    public Observable<Mootamar> get_mootamar(int id) {
+        return mootamarDao.get_mootamarr(id)
+                .subscribeOn(Schedulers.io())
+                .observeOn(AndroidSchedulers.mainThread());
+    }
+
 }
