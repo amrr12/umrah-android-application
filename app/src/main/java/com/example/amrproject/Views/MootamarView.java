@@ -121,7 +121,6 @@ public class MootamarView extends Fragment {
         });
 
 
-
         return view;
     }
 }
