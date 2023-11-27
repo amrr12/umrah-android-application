@@ -63,7 +63,7 @@ public  class RecycleViewAdapter extends RecyclerView.Adapter<RecycleViewAdapter
 
 
     @Override
-    public void onBindViewHolder(ViewHolder viewHolder, int position) {
+    public void onBindViewHolder(ViewHolder viewHolder, @SuppressLint("RecyclerView") int position) {
 
 
         if (!localDataSet.isEmpty()) {

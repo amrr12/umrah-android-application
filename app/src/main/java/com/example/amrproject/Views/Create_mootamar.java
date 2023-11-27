@@ -3,6 +3,7 @@ package com.example.amrproject.Views;
 import android.os.Bundle;
 
 import androidx.fragment.app.Fragment;
+import androidx.fragment.app.FragmentTransaction;
 import androidx.lifecycle.LifecycleOwner;
 
 import android.util.Log;
@@ -36,7 +37,7 @@ public class Create_mootamar extends Fragment {
 
     RadioButton female;
 
-    MaterialButton createMootamar;
+    MaterialButton createMootamar,createmootamrback;
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
@@ -45,9 +46,10 @@ public class Create_mootamar extends Fragment {
         String umrahid = getArguments().getString("umrahid");
         viewModel = new CreateMootamarViewModel(requireActivity().getApplication());
         View view =  inflater.inflate(R.layout.fragment_create_mootamar, container, false);
-        String[] options = {"1", "2", "3", "4", "5"};
+        String[] options = {"2", "3", "4", "5"};
 
         createMootamar = view.findViewById(R.id.createMootamar);
+        createmootamrback = view.findViewById(R.id.createmootamrback);
         fullname = view.findViewById(R.id.motamarname);
         phonenumber = view.findViewById(R.id.createphonemootamar);
         price = view.findViewById(R.id.price);
@@ -82,6 +84,20 @@ public class Create_mootamar extends Fragment {
                     Toast.makeText(getContext(),viewModel.getMootamarCreated().getValue(),Toast.LENGTH_SHORT).show();
                 });
 
+            }
+        });
+
+        createmootamrback.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Bundle bundle = new Bundle();
+                bundle.putString("umrahid",umrahid);
+                Fragment frag = new UmrahView();
+                frag.setArguments(bundle);
+                FragmentTransaction ft = getParentFragmentManager().beginTransaction();;
+                ft.replace(R.id.fragment_container, frag);
+                ft.setTransition(FragmentTransaction.TRANSIT_FRAGMENT_FADE);
+                ft.commit();
             }
         });
 

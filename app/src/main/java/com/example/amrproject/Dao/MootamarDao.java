@@ -24,6 +24,9 @@ public interface MootamarDao {
     @Query("select * from mootamar_table where id = :id")
     Observable<Mootamar> get_mootamarr(int id);
 
+    @Query("update mootamar_table set fullName = :newName , price = :newPrice , phoneNumber = :newPhone")
+    Completable update_mootamar(String newName,int newPrice, int newPhone);
+
     @Delete
     Completable delete_mootamar(Mootamar mootamar);
 }

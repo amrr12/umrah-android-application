@@ -30,6 +30,12 @@ public class MootamarRepository {
                 .observeOn(AndroidSchedulers.mainThread());
     }
 
+    public Completable updateMootamar (String newName, int newPrice, int newPhone){
+        return mootamarDao.update_mootamar(newName,newPrice,newPhone)
+                .subscribeOn(Schedulers.io())
+                .observeOn(AndroidSchedulers.mainThread());
+    }
+
     public Completable deleteMootamr (Mootamar mootamar){
         return mootamarDao.delete_mootamar(mootamar)
                 .subscribeOn(Schedulers.io())
