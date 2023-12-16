@@ -42,9 +42,9 @@ public  class RecycleViewAdapter extends RecyclerView.Adapter<RecycleViewAdapter
                 @Override
                 public void onClick(View v) {
                     String uri = "tel:" + phonemootamar.getText().toString().trim();
-                    Intent intent = new Intent(Intent.ACTION_CALL);
-                    intent.setData(Uri.parse(uri));
-                    startActivity(intent);
+                    Intent i = new Intent(Intent.ACTION_CALL);
+                    i.setData(Uri.parse(uri));
+                    v.getContext().startActivity(i);
                 }
             });
         }
