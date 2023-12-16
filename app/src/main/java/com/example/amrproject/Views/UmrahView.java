@@ -53,9 +53,6 @@ public class UmrahView extends Fragment implements RecycleViewAdapter.OnItemClic
 
     RecyclerView listmootamar;
 
-
-
-
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
@@ -65,6 +62,7 @@ public class UmrahView extends Fragment implements RecycleViewAdapter.OnItemClic
 
 
         String umrahid = getArguments().getString("umrahid");
+        Log.d("umrahId",umrahid);
         View view = inflater.inflate(R.layout.fragment_umrah, container, false);
         viewModel.findUmrahById(Integer.valueOf(umrahid));
 
@@ -89,7 +87,6 @@ public class UmrahView extends Fragment implements RecycleViewAdapter.OnItemClic
 
         viewModel.getMootamarList(Integer.valueOf(umrahid));
 
-       // Log.d("moootamar list",viewModel.getMootamarList().getValue().toString());
         back.setOnClickListener(view1 -> {
             Fragment fragHome = new HomeFragment();
             FragmentTransaction ft = getParentFragmentManager().beginTransaction();;
@@ -221,9 +218,8 @@ public class UmrahView extends Fragment implements RecycleViewAdapter.OnItemClic
         addMootamar.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                int id = viewModel.getUmrahLiveData().getValue().getId();
                 Bundle bundle = new Bundle();
-                bundle.putString("umrahid",String.valueOf(id));
+                bundle.putString("umrahid",umrahid);
                 Fragment frag = new Create_mootamar();
                 frag.setArguments(bundle);
                 FragmentTransaction ft = getParentFragmentManager().beginTransaction();;

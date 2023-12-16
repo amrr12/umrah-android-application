@@ -74,7 +74,10 @@ public class UmrahViewViewModel extends ViewModel {
     }
 
     public void getMootamarList(int umrahid) {
-        mootamarRepository.get_mootamars(umrahid).subscribe(list->mootamarList.setValue(list),throwable -> error = 1);
+        mootamarRepository.get_mootamars(umrahid).subscribe(list->{
+                    mootamarList.setValue(list);
+                    Log.d("mootamar", mootamarList.toString());}
+                ,throwable -> error = 1);
     }
 
     public void delete_mootamar(Mootamar mootamar) {

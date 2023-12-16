@@ -1,6 +1,10 @@
 package com.example.amrproject.adapters;
 
+import static androidx.core.content.ContextCompat.startActivity;
+
 import android.annotation.SuppressLint;
+import android.content.Intent;
+import android.net.Uri;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -33,6 +37,16 @@ public  class RecycleViewAdapter extends RecyclerView.Adapter<RecycleViewAdapter
 
             esem = view.findViewById(R.id.esmmootamarelement);
             phonemootamar = view.findViewById(R.id.phonemootamarelement);
+
+            phonemootamar.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View v) {
+                    String uri = "tel:" + phonemootamar.getText().toString().trim();
+                    Intent intent = new Intent(Intent.ACTION_CALL);
+                    intent.setData(Uri.parse(uri));
+                    startActivity(intent);
+                }
+            });
         }
 
         public TextView getEsem() {
