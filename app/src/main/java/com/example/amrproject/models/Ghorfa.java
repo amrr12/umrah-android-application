@@ -2,6 +2,7 @@ package com.example.amrproject.models;
 
 import androidx.room.Entity;
 import androidx.room.PrimaryKey;
+import androidx.room.Relation;
 
 import java.util.List;
 @Entity(tableName = "ghorfa_table")
@@ -9,13 +10,14 @@ public class Ghorfa {
     @PrimaryKey(autoGenerate = true)
     private int id ;
     private String type;
-    private List<Mootamar> roommates;
-    private Umrah umrah;
+    private int umrahid;
 
-    public Ghorfa(String type, List<Mootamar> roommates, Umrah umrah) {
+    @Relation(parentColumn = "id", entityColumn = "ghorfaid")
+    private List<Mootamar> mootamars;
+
+    public Ghorfa(String type, int umrahid) {
         this.type = type;
-        this.roommates = roommates;
-        this.umrah = umrah;
+        this.umrahid = umrahid;
     }
 
     public int getId() {
@@ -26,12 +28,8 @@ public class Ghorfa {
         return type;
     }
 
-    public List<Mootamar> getRoommates() {
-        return roommates;
-    }
-
-    public Umrah getUmrah() {
-        return umrah;
+    public int getUmrahid() {
+        return umrahid;
     }
 
     public void setId(int id) {
@@ -41,12 +39,7 @@ public class Ghorfa {
     public void setType(String type) {
         this.type = type;
     }
-
-    public void setRoommates(List<Mootamar> roommates) {
-        this.roommates = roommates;
-    }
-
-    public void setUmrah(Umrah umrah) {
-        this.umrah = umrah;
+    public void setUmrahid(int umrahid) {
+        this.umrahid = umrahid;
     }
 }
