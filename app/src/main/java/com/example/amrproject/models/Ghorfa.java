@@ -12,8 +12,6 @@ public class Ghorfa {
     private String type;
     private int umrahid;
 
-    @Relation(parentColumn = "id", entityColumn = "ghorfaid")
-    private List<Mootamar> mootamars;
 
     public Ghorfa(String type, int umrahid) {
         this.type = type;

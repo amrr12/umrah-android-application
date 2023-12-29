@@ -6,7 +6,10 @@ import android.os.Bundle;
 
 import androidx.fragment.app.Fragment;
 import androidx.fragment.app.FragmentTransaction;
+import androidx.recyclerview.widget.LinearLayoutManager;
+import androidx.recyclerview.widget.RecyclerView;
 
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -15,6 +18,9 @@ import android.widget.Toast;
 
 import com.example.amrproject.R;
 import com.example.amrproject.ViewModels.MootamarViewViewModel;
+import com.example.amrproject.adapters.RecycleViewAdapter;
+import com.example.amrproject.adapters.Rva;
+import com.example.amrproject.models.Mootamar;
 import com.google.android.material.button.MaterialButton;
 
 public class MootamarView extends Fragment {
@@ -27,6 +33,8 @@ public class MootamarView extends Fragment {
 
     EditText price;
 
+    RecyclerView roommates;
+
     MaterialButton edit_mootamar,save_changesmoptamar,mootamrback,deletemootamar;
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
@@ -34,22 +42,41 @@ public class MootamarView extends Fragment {
         int mootamarid = Integer.valueOf(getArguments().getString("mootamar"));
         viewModel = new MootamarViewViewModel(requireActivity().getApplication());
         viewModel.get_mootamar(mootamarid);
+
         View view = inflater.inflate(R.layout.fragment_mootamar, container, false);
 
         esmmmootamar = view.findViewById(R.id.esmmmootamar);
         phonemootamar = view.findViewById(R.id.phonemootamar);
         price = view.findViewById(R.id.price);
 
+        roommates = view.findViewById(R.id.roommateslist);
+
         edit_mootamar = view.findViewById(R.id.edit_mootamar);
         save_changesmoptamar = view.findViewById(R.id.save_changesmoptamar);
         mootamrback = view.findViewById(R.id.mootamrback);
         deletemootamar = view.findViewById(R.id.deletemootamar);
-
         viewModel.getMootamar().observe(getViewLifecycleOwner(),mootamar -> {
             esmmmootamar.setText(mootamar.getFullName());
             phonemootamar.setText(String.valueOf(mootamar.getPhoneNumber()));
             price.setText(String.valueOf(mootamar.getPrice()));
+            viewModel.getRoomateslist(mootamar.getGhorfaid());
         });
+
+
+
+        Rva adapter = new Rva();
+        viewModel.getRoomates1().observe(getViewLifecycleOwner(),list->{
+            for (Mootamar i : list) {
+                Log.d("roomates",i.getFullName().toString());
+            }
+            adapter.setLocalDataSet(list);
+            adapter.notifyDataSetChanged();
+        });
+        RecyclerView.LayoutManager layoutManager = new LinearLayoutManager(getActivity());
+        roommates.setLayoutManager(layoutManager);
+        roommates.setAdapter(adapter);
+
+
 
 
         edit_mootamar.setOnClickListener(new View.OnClickListener() {
@@ -123,4 +150,7 @@ public class MootamarView extends Fragment {
 
         return view;
     }
+
+
+
 }

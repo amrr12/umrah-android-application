@@ -61,7 +61,7 @@ public class Create_mootamar extends Fragment {
         adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
         spinner.setAdapter(adapter);
 
-        int selectedSpinnerItem = Integer.valueOf(spinner.getSelectedItem().toString());
+
 
         createMootamar.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -76,13 +76,22 @@ public class Create_mootamar extends Fragment {
                 }else{
                      gendre = 1;
                 }
-                int ghorfaId = 1;
+                String selectedSpinnerItem = spinner.getSelectedItem().toString();
 
 
-                viewModel.add_mootamar(name,phone,priceMootamar,gendre,ghorfaId,Integer.valueOf(umrahid));
+                viewModel.add_mootamar(name,phone,priceMootamar,gendre,Integer.valueOf(umrahid),selectedSpinnerItem);
                 viewModel.getMootamarCreated().observe(getViewLifecycleOwner(),responce ->{
                     Toast.makeText(getContext(),viewModel.getMootamarCreated().getValue(),Toast.LENGTH_SHORT).show();
                 });
+
+                Bundle bundle = new Bundle();
+                bundle.putString("umrahid",umrahid);
+                Fragment frag = new UmrahView();
+                frag.setArguments(bundle);
+                FragmentTransaction ft = getParentFragmentManager().beginTransaction();;
+                ft.replace(R.id.fragment_container, frag);
+                ft.setTransition(FragmentTransaction.TRANSIT_FRAGMENT_FADE);
+                ft.commit();
 
             }
         });
