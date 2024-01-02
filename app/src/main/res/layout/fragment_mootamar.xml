@@ -263,11 +263,11 @@
                         android:gravity="center">
 
                         <com.google.android.material.button.MaterialButton
-                            android:id="@+id/room"
+                            android:id="@+id/addtoar"
                             android:layout_width="140dp"
                             android:layout_height="75dp"
                             android:padding="5dp"
-                            android:text="الغرف"
+                            android:text="ارشيف"
                             android:textSize="25dp"
                             android:textColor="@color/white"
                             app:elevation="15dp"

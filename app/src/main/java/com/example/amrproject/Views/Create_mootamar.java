@@ -81,7 +81,7 @@ public class Create_mootamar extends Fragment {
 
                 viewModel.add_mootamar(name,phone,priceMootamar,gendre,Integer.valueOf(umrahid),selectedSpinnerItem);
                 viewModel.getMootamarCreated().observe(getViewLifecycleOwner(),responce ->{
-                    Toast.makeText(getContext(),viewModel.getMootamarCreated().getValue(),Toast.LENGTH_SHORT).show();
+                    Toast.makeText(getContext(),"تم اضافة المعتمر",Toast.LENGTH_SHORT).show();
                 });
 
                 Bundle bundle = new Bundle();

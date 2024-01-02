@@ -17,15 +17,18 @@ import android.widget.EditText;
 import android.widget.Toast;
 
 import com.example.amrproject.R;
+import com.example.amrproject.ViewModels.ArchiveViewModel;
 import com.example.amrproject.ViewModels.MootamarViewViewModel;
 import com.example.amrproject.adapters.RecycleViewAdapter;
 import com.example.amrproject.adapters.Rva;
 import com.example.amrproject.models.Mootamar;
+import com.example.amrproject.models.MootamarAR;
 import com.google.android.material.button.MaterialButton;
 
 public class MootamarView extends Fragment {
 
     MootamarViewViewModel viewModel;
+    ArchiveViewModel archiveViewModel;
 
     EditText esmmmootamar;
 
@@ -35,12 +38,14 @@ public class MootamarView extends Fragment {
 
     RecyclerView roommates;
 
-    MaterialButton edit_mootamar,save_changesmoptamar,mootamrback,deletemootamar;
+    MaterialButton edit_mootamar,save_changesmoptamar,mootamrback,deletemootamar,addtoar;
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         int mootamarid = Integer.valueOf(getArguments().getString("mootamar"));
         viewModel = new MootamarViewViewModel(requireActivity().getApplication());
+        archiveViewModel = new ArchiveViewModel();
+
         viewModel.get_mootamar(mootamarid);
 
         View view = inflater.inflate(R.layout.fragment_mootamar, container, false);
@@ -48,6 +53,7 @@ public class MootamarView extends Fragment {
         esmmmootamar = view.findViewById(R.id.esmmmootamar);
         phonemootamar = view.findViewById(R.id.phonemootamar);
         price = view.findViewById(R.id.price);
+        addtoar = view.findViewById(R.id.addtoar);
 
         roommates = view.findViewById(R.id.roommateslist);
 
@@ -146,6 +152,20 @@ public class MootamarView extends Fragment {
                 alertDialog.show();
             }
         });
+
+        addtoar.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Mootamar m = viewModel.getMootamar().getValue();
+                MootamarAR m1 = new MootamarAR(m.getFullName(),m.getGendre(),m.getPhoneNumber());
+                archiveViewModel.add_to_ar(m1);
+            }
+        });
+
+        archiveViewModel.getIsCreated().observe(getViewLifecycleOwner(),created->{
+            Toast.makeText(getContext(),"تم اضافة المعتمر للارشيف",Toast.LENGTH_SHORT);
+        });
+
 
 
         return view;
