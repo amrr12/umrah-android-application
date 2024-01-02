@@ -41,7 +41,7 @@ public class UmrahView extends Fragment implements RecycleViewAdapter.OnItemClic
     UmrahViewViewModel viewModel;
 
 
-    TextView umrah_date;
+    TextView umrah_date,umrahmarabih;
     MaterialButton back;
     MaterialButton lock_unlock;
     MaterialButton delete;
@@ -76,16 +76,19 @@ public class UmrahView extends Fragment implements RecycleViewAdapter.OnItemClic
         umrah_date = view.findViewById(R.id.umrah_date);
         ikama = view.findViewById(R.id.hotel);
         takalif = view.findViewById(R.id.takalif);
+        umrahmarabih = view.findViewById(R.id.umrahmarabih);
 
         viewModel.getUmrahLiveData().observe(getViewLifecycleOwner(), umrah -> {
             if (umrah != null) {
                 umrah_date.setText(umrah.getDate());
                 ikama.setText(umrah.getHotel());
                 takalif.setText(String.valueOf(umrah.getTakalif()));
+                viewModel.calculateMarabih();
             }
         });
 
         viewModel.getMootamarList(Integer.valueOf(umrahid));
+
 
         back.setOnClickListener(view1 -> {
             Fragment fragHome = new HomeFragment();
@@ -151,11 +154,18 @@ public class UmrahView extends Fragment implements RecycleViewAdapter.OnItemClic
         RecycleViewAdapter adapter = new RecycleViewAdapter(this);
         viewModel.getMootamarList().observe(getViewLifecycleOwner(),list->{
             adapter.setLocalDataSet(list);
+            adapter.notifyDataSetChanged();
         });
         RecyclerView.LayoutManager layoutManager = new LinearLayoutManager(getActivity());
         listmootamar.setLayoutManager(layoutManager);
         listmootamar.setAdapter(adapter);
 
+
+
+        viewModel.getMarabihLiveData().observe(getViewLifecycleOwner(),marabih->{
+            Log.d("marabih",String.valueOf(marabih));
+            umrahmarabih.setText(String.valueOf(marabih));
+        });
 
         ItemTouchHelper.SimpleCallback simpleCallback = new ItemTouchHelper.SimpleCallback(0, ItemTouchHelper.RIGHT){
 

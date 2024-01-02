@@ -31,6 +31,8 @@ public class UmrahViewViewModel extends ViewModel {
     private MutableLiveData<String> deleteumrah = new MutableLiveData<>();
 
     private MutableLiveData<String> updateumrah = new MutableLiveData<>();
+
+    private MutableLiveData<Double> marabih = new MutableLiveData<>();
     public int error = 0;
 
     public UmrahViewViewModel(Application application) {
@@ -43,7 +45,9 @@ public class UmrahViewViewModel extends ViewModel {
         return umrahLiveData;
     }
 
-
+    public LiveData<Double> getMarabihLiveData() {
+        return marabih;
+    }
     public LiveData<String> getupdateumrah() {
         return updateumrah;
     }
@@ -86,6 +90,21 @@ public class UmrahViewViewModel extends ViewModel {
 
     public void add_mootamar(Mootamar mootamar) {
         mootamarRepository.createMootamar(mootamar).subscribe(()->error = 0,throwable -> error = 1);
+    }
+
+    public void calculateMarabih() {
+        Umrah umrah = getUmrahLiveData().getValue();
+        if (umrah != null) {
+            int takalif = umrah.getTakalif();
+            double priceallMootamar = 0;
+            List<Mootamar> mootamarList = getMootamarList().getValue();
+            if (mootamarList != null) {
+                for (Mootamar i : mootamarList) {
+                    priceallMootamar += i.getPrice();
+                }
+                marabih.setValue(priceallMootamar - takalif);
+            }
+        }
     }
 
 }

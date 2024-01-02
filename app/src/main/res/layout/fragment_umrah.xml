@@ -228,7 +228,7 @@
                         android:id="@+id/umrahmarabih"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:text="500dt"
+                        android:text=""
                         android:textColor="@color/primary2"
                         android:gravity="center"
                         android:textSize="20dp"

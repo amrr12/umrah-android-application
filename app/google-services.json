@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "170118980416",
+    "project_id": "umrahar-d1f85",
+    "storage_bucket": "umrahar-d1f85.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:170118980416:android:34aca1b7db4f74b76e50a5",
+        "android_client_info": {
+          "package_name": "com.company.umrah"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAvasavl5DodsilT5Sxb6eiZzW3WO6V7Y4"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
