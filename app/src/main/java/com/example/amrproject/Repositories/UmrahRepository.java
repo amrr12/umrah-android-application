@@ -8,6 +8,7 @@ import com.example.amrproject.Dao.UmrahDao;
 import com.example.amrproject.DataBase.DataBase;
 import com.example.amrproject.models.Mootamar;
 import com.example.amrproject.models.Umrah;
+import com.example.amrproject.models.UmrahWithMootamar;
 
 import java.util.List;
 
@@ -19,6 +20,7 @@ import io.reactivex.rxjava3.schedulers.Schedulers;
 public class UmrahRepository {
 
     private UmrahDao umrahDao;
+
 
 
 
@@ -42,7 +44,7 @@ public class UmrahRepository {
                 .observeOn(AndroidSchedulers.mainThread());
     } ;
 
-    public Observable<Umrah> findUmrahById(int id) {
+    public Observable<UmrahWithMootamar> findUmrahById(int id) {
         Log.d("umrahRepository", "findUmrahById called with ID: " + id);
         return umrahDao.find_umrah_by_id(id)
                 .subscribeOn(Schedulers.io())
@@ -61,7 +63,6 @@ public class UmrahRepository {
                 .subscribeOn(Schedulers.io())
                 .observeOn(AndroidSchedulers.mainThread());
     }
-
 
 
 

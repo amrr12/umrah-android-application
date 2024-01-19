@@ -59,5 +59,9 @@ public class GhorfaRepository {
         return ghorfaDao.getLastGhorfa();
     }
 
-
+    public Completable delete_ghoraf(int id){
+        return ghorfaDao.delete_Ghoraf(id)
+                .subscribeOn(Schedulers.io())
+                .observeOn(AndroidSchedulers.mainThread());
+    }
 }

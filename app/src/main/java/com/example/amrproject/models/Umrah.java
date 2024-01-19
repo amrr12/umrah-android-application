@@ -19,9 +19,6 @@ public class Umrah {
     private int takalif ;
 
 
-    private List<Mootamar> listMootamar;
-
-    private List<Ghorfa> listGhoraf;
 
     public Umrah(String date, String hotel, int takalif) {
         this.date = date;
@@ -46,13 +43,8 @@ public class Umrah {
         return takalif;
     }
 
-    public List<Mootamar> getListMootamar() {
-        return listMootamar;
-    }
 
-    public List<Ghorfa> getListGhoraf() {
-        return listGhoraf;
-    }
+
 
     public void setId(int id) {
         this.id = id;
@@ -70,11 +62,4 @@ public class Umrah {
         this.takalif = takalif;
     }
 
-    public void setListMootamar(List<Mootamar> listMootamar) {
-        this.listMootamar = listMootamar;
-    }
-
-    public void setListGhoraf(List<Ghorfa> listGhoraf) {
-        this.listGhoraf = listGhoraf;
-    }
 }

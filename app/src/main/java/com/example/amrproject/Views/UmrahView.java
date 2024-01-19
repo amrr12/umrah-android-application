@@ -80,14 +80,14 @@ public class UmrahView extends Fragment implements RecycleViewAdapter.OnItemClic
 
         viewModel.getUmrahLiveData().observe(getViewLifecycleOwner(), umrah -> {
             if (umrah != null) {
-                umrah_date.setText(umrah.getDate());
-                ikama.setText(umrah.getHotel());
-                takalif.setText(String.valueOf(umrah.getTakalif()));
+                umrah_date.setText(umrah.umrah.getDate());
+                ikama.setText(umrah.umrah.getHotel());
+                takalif.setText(String.valueOf(umrah.umrah.getTakalif()));
                 viewModel.calculateMarabih();
             }
         });
 
-        viewModel.getMootamarList(Integer.valueOf(umrahid));
+
 
 
         back.setOnClickListener(view1 -> {
@@ -123,7 +123,7 @@ public class UmrahView extends Fragment implements RecycleViewAdapter.OnItemClic
             public void onClick(View v) {
                 int price = Integer.valueOf(takalif.getText().toString());
                 Log.d("price",String.valueOf(price));
-                viewModel.update_umrah(viewModel.getUmrahLiveData().getValue().getId(),ikama.getText().toString(),price);
+                viewModel.update_umrah(viewModel.getUmrahLiveData().getValue().umrah.getId(),ikama.getText().toString(),price);
                 viewModel.getupdateumrah().observe(getViewLifecycleOwner(),responce -> {
                     Toast.makeText(requireActivity(),responce,Toast.LENGTH_SHORT).show();
                 });
@@ -137,7 +137,7 @@ public class UmrahView extends Fragment implements RecycleViewAdapter.OnItemClic
             alertDialog.setButton(DialogInterface.BUTTON_NEUTRAL, "حذف العمرة", new DialogInterface.OnClickListener() {
                 @Override
                 public void onClick(DialogInterface dialog, int which) {
-                    viewModel.delete_umrah(viewModel.getUmrahLiveData().getValue());
+                    viewModel.delete_umrah(viewModel.getUmrahLiveData().getValue().umrah);
                     dialog.dismiss();
                     Fragment fragHome = new HomeFragment();
                     FragmentTransaction ft = getParentFragmentManager().beginTransaction();;

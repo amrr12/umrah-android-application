@@ -29,4 +29,7 @@ public interface MootamarDao {
 
     @Delete
     Completable delete_mootamar(Mootamar mootamar);
+
+    @Query("delete from mootamar_table where umrahid =:id")
+    Completable delete_mootamars(int id);
 }

@@ -42,6 +42,12 @@ public class MootamarRepository {
                 .observeOn(AndroidSchedulers.mainThread());
     }
 
+    public Completable deleteMootamrs (int id){
+        return mootamarDao.delete_mootamars(id)
+                .subscribeOn(Schedulers.io())
+                .observeOn(AndroidSchedulers.mainThread());
+    }
+
     public Observable<List<Mootamar>> get_mootamars(int umrahid){
         return mootamarDao.get_mootamar(umrahid)
                 .subscribeOn(Schedulers.io())

@@ -18,7 +18,7 @@ import com.example.amrproject.models.Ghorfa;
 import com.example.amrproject.models.Mootamar;
 import com.example.amrproject.models.Umrah;
 
-@Database(entities =  {Umrah.class, Mootamar.class, Ghorfa.class}, version = 8)
+@Database(entities =  {Umrah.class, Mootamar.class, Ghorfa.class}, version = 10)
 @TypeConverters(value = {MootamarListConverter.class, GhorfaListConverter.class, GhorfaConverter.class, UmrahConverter.class})
 abstract public class DataBase extends RoomDatabase {
 

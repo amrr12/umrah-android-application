@@ -11,6 +11,7 @@ import androidx.room.Update;
 import com.example.amrproject.models.Ghorfa;
 import com.example.amrproject.models.GhorfaWithMootamar;
 import com.example.amrproject.models.Mootamar;
+import com.example.amrproject.models.Umrah;
 
 import java.util.List;
 
@@ -42,5 +43,8 @@ public interface GhorfaDao {
 
     @Delete
     Completable delete_Ghorfa(Ghorfa ghorfa);
+
+    @Query("delete from ghorfa_table where umrahid = :id")
+    Completable delete_Ghoraf(int id);
 
 }

@@ -9,6 +9,7 @@ import androidx.room.Update;
 import androidx.room.util.FtsTableInfo;
 
 import com.example.amrproject.models.Umrah;
+import com.example.amrproject.models.UmrahWithMootamar;
 
 import java.util.List;
 
@@ -24,7 +25,7 @@ public interface UmrahDao {
    @Query("select * from umrah_table")
    Observable<List<Umrah>> get_umrah();
    @Query("SELECT * FROM umrah_table WHERE id = :id")
-   Observable<Umrah> find_umrah_by_id(int id);
+   Observable<UmrahWithMootamar> find_umrah_by_id(int id);
 
    @Query("UPDATE umrah_table SET  takalif = :price, hotel = :hotel WHERE id = :id")
    Completable update_umrah(int id,String hotel,int price);
